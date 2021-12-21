@@ -3,7 +3,7 @@
 dir=$1
 tijd=$2
 
-foto_folder="$Home/photos"
+foto_folder="$Home/fotos"
 
 if [ ! d "$foto_folder" ]
 then
@@ -31,8 +31,8 @@ do
             cp -v "$foto" "$foto_folder"/"$tijdsperiode"/"$foto"
 	fi
 
-	oud=$(sudo md5sum "$Home"/"$photos | cut -d " " -f1)
-	nieuw=$(sudo md5sum "$foto_folder"/"tijdsperiode"/"foto?  | cut -d " " -f1)
+	oud=$(sudo md5sum "$Home"/"$foto_folder" | cut -d " " -f1)
+	nieuw=$(sudo md5sum "$foto_folder"/"tijdsperiode"/"$foto"  | cut -d " " -f1)
 
 	if [ "$oud" = "$nieuw" ]
 	then
