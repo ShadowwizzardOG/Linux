@@ -1,0 +1,5 @@
+Tutorial
+
+cd An tab
+
+ansible-playbook -i hosts playbook.yml

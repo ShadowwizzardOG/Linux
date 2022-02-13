@@ -1,0 +1,7 @@
+#!/bin/bash
+sudo apt-get update
+sudo apt install syslog-ng -y
+sudo apt install munin -y
+sudo sed -i '101i [Remote1]' /etc/munin/munin.conf
+sudo sed -i '102i \    address 10.1.0.103' /etc/munin/munin.conf
+sudo sed -i '103i \    use_node_name yes' /etc/munin/munin.conf
