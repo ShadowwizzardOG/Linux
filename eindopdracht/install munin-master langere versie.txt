@@ -1,0 +1,16 @@
+#!/bin/bash
+sudo apt-get update
+sudo apt install apache2 -y
+sudo apt install munin -y
+sudo sed -i '101i [MuninNode]' /etc/munin/munin.conf
+sudo sed -i '102i \    address 10.1.0.103' /etc/munin/munin.conf
+sudo sed -i '103i \    use_node_name yes' /etc/munin/munin.conf
+sudo sed -i '153i \    dbdir /var/lib/munin' /etc/munin/munin.conf
+sudo sed -i '154i \    htmldir /var/www/munin' /etc/munin/munin.conf
+sudo sed -i '155i \    logdir /var/log/munin' /etc/munin/munin.conf
+sudo sed -i '156i \    rundir /var/log/munin' /etc/munin/munin.conf
+sudo sed -i '157i \    tmpldir /etc/munin/templates' /etc/munin/munin.conf
+sudo sed -i '20i \ Allow from all' /etc/munin/apache24.conf
+sudo sed 's/None/FollowSymLinks SymlinksIfOwnerMatch' /etc/munin/apache24.conf
+service apache2 restart
+service munin restart
